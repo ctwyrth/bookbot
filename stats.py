@@ -18,9 +18,10 @@ def count_chars(text):
 
 def sort_chars(char_count):
   # sorted_char_count = {k: v for k, v in sorted(char_count.items(), key = lambda item: item[1], reverse = True)}
-  def sort_on(items):
-    return items[1]
+  # def sort_on(items):
+  #   return items[1]
   
-  sorted_char_count = char_count.sort(reverse = True, key = sort_on)
+  sorted_char_count = sorted(char_count.items(), key = lambda item: item[1], reverse = True)
+  sorted_char_count = dict(sorted_char_count)
 
   return sorted_char_count
