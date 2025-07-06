@@ -7,11 +7,6 @@ def count_words(text):
 def count_chars(text):
   char_dict = {}
 
-  # text = re.sub('[^a-zA-Z]', '', text)
-  # text = text.lower()
-
-  # print(text)
-
   for char in text:
     lower_char = char.lower()
     if lower_char in char_dict:
@@ -20,3 +15,12 @@ def count_chars(text):
       char_dict[lower_char] = 1
   
   return char_dict
+
+def sort_chars(char_count):
+  # sorted_char_count = {k: v for k, v in sorted(char_count.items(), key = lambda item: item[1], reverse = True)}
+  def sort_on(items):
+    return items[1]
+  
+  sorted_char_count = char_count.sort(reverse = True, key = sort_on)
+
+  return sorted_char_count

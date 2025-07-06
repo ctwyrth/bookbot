@@ -1,5 +1,5 @@
 # import sys
-from stats import count_words, count_chars
+from stats import count_words, count_chars, sort_chars
 
 # def main() -> str:
 #   with open('books/frankenstein.txt') as f:
@@ -16,20 +16,24 @@ def main():
   book_text = get_text(path_to)
   num_words_in_book = count_words(book_text)
   char_count_in_book = count_chars(book_text)
+  sorted_chars_in_book = sort_chars(char_count_in_book)
 
-  # sorted_char_count = {k: v for k, v in sorted(char_count_in_book.items(), key = lambda item: item[1], reverse = True)}
-
-#   print("--- Begin report of books/frankenstein.txt ---")
-  print(f"{num_words_in_book} words found in the document")
-#   print()
+  print("============ BOOKBOT ============")
+  print("Analyzing book found at books/frankenstein.txt...")
+  print("----------- Word Count ----------")
+  # print(f"{num_words_in_book} words found in the document")
+  print(f"Found {num_words_in_book} total words")
+  print("--------- Character Count -------")
   
-  print(json.dumps(char_count_in_book))
+  # print(char_count_in_book)
+  # print(json.dumps(char_count_in_book))
   # print(json.dumps(sorted_char_count))
 
-#   for key in sorted_char_count:
-#     print(f"The '{key}' character was found {sorted_char_count[key]} times")
+  for key in sorted_chars_in_book:
+    if key.isalpha():
+      print(f"{key}: {sorted_chars_in_book[key]}")
   
-#   print("--- End report ---")
+  print("============== END ==============")
 
 
 def get_text(path):
