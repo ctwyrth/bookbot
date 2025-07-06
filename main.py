@@ -5,7 +5,7 @@ import json
 def main():
   if len(sys.argv) != 2:
     print("Usage: python3 main.py <path_to_book>")
-    sys.exit()
+    sys.exit(1)
   # path_to = "books/frankenstein.txt"
   path_to = sys.argv[1]
   book_text = get_text(path_to)
